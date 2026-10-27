@@ -1,0 +1,13 @@
+[Unit]
+Description=Server Monitoring Agent
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# Mục 5 - Chú thích: Giữ đường dẫn mặc định và gợi ý đường dẫn thay thế bên dưới tùy theo thư mục cài đặt của bạn
+ExecStart=/opt/server-monitor/run-agent.sh
+# -> Gợi ý đường dẫn ExecStart: /opt/server-monitor/run-agent.sh hoặc /opt/<ten-du-an>-monitor/run-agent.sh
+TimeoutStartSec=50
+User=root
+Group=root
